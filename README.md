@@ -11,4 +11,5 @@
 
 | # | Title | Solution | Basic idea (One line) | Difficulty |
 |---| ----- | -------- | --------------------- | ---------- |
-| 1 | [Two Sum](https://leetcode.com/problems/two-sum/) | [C++](https://github.com/qiyuangong/leetcode/blob/master/python/001_Two_Sum.py), [Java](https://github.com/qiyuangong/leetcode/blob/master/java/001_Two_Sum.java) | 1. Hash O(n) and O(n) space.<br>2. Sort and search with two points O(n) and O(1) space. |Easy|
+| 1 | [Two Sum](https://leetcode.com/problems/counting-bits/) | [C++](https://github.com/qiyuangong/leetcode/blob/master/python/001_Two_Sum.py), [Java](https://github.com/qiyuangong/leetcode/blob/master/java/001_Two_Sum.java) | 1. Hash O(n) and O(n) space.<br>2. Sort and search with two points O(n) and O(1) space. |Easy|
+| 338 | [Counting Bits](https://leetcode.com/problems/two-sum/) | [C++](https://github.com/elinus/LeetCode/cpp/338_counting_bits.cpp) | 1. Counting number of bits for all n's.<br>2. Time O(n) * c and O(1) space. |Easy|
