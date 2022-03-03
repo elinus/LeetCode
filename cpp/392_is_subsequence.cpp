@@ -3,7 +3,7 @@
 
 using namespace std;
 
-class Solution{
+class Solution {
 
 public:
   bool isSubsequence(string s, string t) {
@@ -17,10 +17,9 @@ public:
   }
 };
 
-int main(int argc, char const *argv[])
-{
-    string s = "abc", t = "ahbgdc";
-    Solution sol;
-    sol.isSubsequence(s, t);
-    return 0;
+int main(int argc, char const *argv[]) {
+  string s = "abc", t = "ahbgdc";
+  Solution sol;
+  sol.isSubsequence(s, t);
+  return 0;
 }

@@ -21,11 +21,10 @@ public:
   }
 };
 
-int main(int argc, char const *argv[])
-{
-    vector<int> nums = {2,7,11,15};
-    int target = 9;
-    Solution sol;
-    sol.twoSum(nums, target);
-    return 0;
+int main(int argc, char const *argv[]) {
+  vector<int> nums = {2, 7, 11, 15};
+  int target = 9;
+  Solution sol;
+  sol.twoSum(nums, target);
+  return 0;
 }

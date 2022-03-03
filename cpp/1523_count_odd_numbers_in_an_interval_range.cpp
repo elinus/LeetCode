@@ -2,10 +2,11 @@
 
 class Solution {
 public:
-    int countOdds(int low, int high) {
-        int diff = high - low;
-        diff /= 2;
-        if (low % 2 || high % 2) diff +=1;
-        return diff;
-    }
+  int countOdds(int low, int high) {
+    int diff = high - low;
+    diff /= 2;
+    if (low % 2 || high % 2)
+      diff += 1;
+    return diff;
+  }
 };
