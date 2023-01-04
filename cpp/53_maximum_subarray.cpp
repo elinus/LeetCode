@@ -1,5 +1,6 @@
 #include <algorithm>
 #include <array>
+#include <climits>
 #include <cmath>
 #include <cstring>
 #include <deque>
@@ -20,16 +21,15 @@ using namespace std;
 
 class Solution {
  public:
-  vector<int> twoSum(vector<int>& nums, int target) {
-    unordered_map<int, int> um;
+  int maxSubArray(vector<int>& nums) {
+    int max_so_far = INT_MIN, max_ending_here = 0;
     for (int i = 0; i < nums.size(); i++) {
-      int diff = target - nums[i];
-      if (um.find(diff) != um.end()) {
-        return {um[diff], i};
-      }
-      um[nums[i]] = i;
+      max_ending_here = max_ending_here + nums[i];
+      if (max_so_far < max_ending_here) max_so_far = max_ending_here;
+
+      if (max_ending_here < 0) max_ending_here = 0;
     }
-    return {};
+    return max_so_far;
   }
 };
 

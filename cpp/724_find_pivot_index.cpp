@@ -7,6 +7,7 @@
 #include <iostream>
 #include <list>
 #include <map>
+#include <numeric>
 #include <queue>
 #include <set>
 #include <sstream>
@@ -20,16 +21,17 @@ using namespace std;
 
 class Solution {
  public:
-  vector<int> twoSum(vector<int>& nums, int target) {
-    unordered_map<int, int> um;
-    for (int i = 0; i < nums.size(); i++) {
-      int diff = target - nums[i];
-      if (um.find(diff) != um.end()) {
-        return {um[diff], i};
-      }
-      um[nums[i]] = i;
+  int pivotIndex(vector<int>& nums) {
+    int left = 0, prev = 0;
+    int right = accumulate(begin(nums), end(nums), 0);
+    int n = nums.size();
+    for (int i = 0; i < n; i++) {
+      left += nums[i];
+      right -= prev;
+      if (left == right) return i;
+      prev = nums[i];
     }
-    return {};
+    return -1;
   }
 };
 

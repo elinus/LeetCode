@@ -20,20 +20,19 @@ using namespace std;
 
 class Solution {
  public:
-  vector<int> twoSum(vector<int>& nums, int target) {
-    unordered_map<int, int> um;
-    for (int i = 0; i < nums.size(); i++) {
-      int diff = target - nums[i];
-      if (um.find(diff) != um.end()) {
-        return {um[diff], i};
-      }
-      um[nums[i]] = i;
+  bool isAnagram(string s, string t) {
+    if (s.size() != t.size()) return false;
+    vector<int> ht(26, 0);
+    for (int i = 0; i < s.size(); i++) ht[s[i] - 'a']++;
+    for (int i = 0; i < t.size(); i++) ht[t[i] - 'a']--;
+    for (int i = 0; i < 26; i++) {
+      if (ht[i] != 0) return false;
     }
-    return {};
+    return true;
   }
 };
 
-int main(int argc, char const* argv[]) {
+int main(int argc, char const *argv[]) {
   /* code */
 
   return 0;

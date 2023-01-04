@@ -20,16 +20,19 @@ using namespace std;
 
 class Solution {
  public:
-  vector<int> twoSum(vector<int>& nums, int target) {
-    unordered_map<int, int> um;
-    for (int i = 0; i < nums.size(); i++) {
-      int diff = target - nums[i];
-      if (um.find(diff) != um.end()) {
-        return {um[diff], i};
-      }
-      um[nums[i]] = i;
+  vector<vector<string>> groupAnagrams(vector<string>& strs) {
+    vector<vector<string>> result;
+    if (strs.empty()) return result;
+    unordered_map<string, vector<string>> um;
+    for (int i = 0; i < strs.size(); ++i) {
+      string key = strs[i];
+      sort(key.begin(), key.end());
+      um[key].push_back(strs[i]);
     }
-    return {};
+    for (auto it = begin(um); it != end(um); ++it) {
+      result.push_back(it->second);
+    }
+    return result;
   }
 };
 

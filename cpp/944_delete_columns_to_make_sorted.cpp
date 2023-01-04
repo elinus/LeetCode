@@ -20,16 +20,20 @@ using namespace std;
 
 class Solution {
  public:
-  vector<int> twoSum(vector<int>& nums, int target) {
-    unordered_map<int, int> um;
-    for (int i = 0; i < nums.size(); i++) {
-      int diff = target - nums[i];
-      if (um.find(diff) != um.end()) {
-        return {um[diff], i};
+  int minDeletionSize(vector<string>& strs) {
+    if (strs.empty()) return 0;
+    int r = strs.size();
+    int c = strs[0].size();
+    int result = 0;
+    for (int i = 0; i < c; i++) {
+      for (int j = 1; j < r; j++) {
+        if (strs[j][i] < strs[j - 1][i]) {
+          result++;
+          break;
+        }
       }
-      um[nums[i]] = i;
     }
-    return {};
+    return result;
   }
 };
 

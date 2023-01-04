@@ -20,16 +20,12 @@ using namespace std;
 
 class Solution {
  public:
-  vector<int> twoSum(vector<int>& nums, int target) {
-    unordered_map<int, int> um;
+  bool containsDuplicate(vector<int>& nums) {
+    unordered_set<int> us;
     for (int i = 0; i < nums.size(); i++) {
-      int diff = target - nums[i];
-      if (um.find(diff) != um.end()) {
-        return {um[diff], i};
-      }
-      um[nums[i]] = i;
+      if (!us.insert(nums[i]).second) return true;
     }
-    return {};
+    return false;
   }
 };
 
