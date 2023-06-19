@@ -33,3 +33,6 @@
 
 # Ignore vscode settings
 .vscode/
+
+# Ignore "stdc++.h" header
+stdc++.h
