@@ -1,0 +1,49 @@
+name: Build and Test Solutions
+
+# Triggers for the workflow
+on:
+    push:
+        branches:
+            - main # Run on pushes to the main branch
+    pull_request:
+        branches:
+            - main # Run on pull requests targeting the main branch
+
+jobs:
+    build-and-test:
+        runs-on: ubuntu-latest # The environment for running jobs
+
+        strategy:
+            matrix:
+                language: [cpp, python, java, rust] # Specify languages supported
+
+        steps:
+            - uses: actions/checkout@v2 # Check out the code from the repository
+
+            # Step to set up Python environment
+            - name: Set up Python
+              if: matrix.language == 'python'
+              uses: actions/setup-python@v2
+
+            # Step to set up C++ environment
+            - name: Set up C++
+              if: matrix.language == 'cpp'
+              run: sudo apt-get install g++
+
+            # Step to set up Java environment
+            - name: Set up Java
+              if: matrix.language == 'java'
+              uses: actions/setup-java@v2
+              with:
+                  java-version: "11"
+
+            # Step to set up Rust environment
+            - name: Set up Rust
+              if: matrix.language == 'rust'
+              uses: actions-rs/toolchain@v1
+              with:
+                  toolchain: stable
+
+        # Build and run tests for the specified problem across all languages
+        #- name: Build and Run Tests
+        #  run: ./scripts/run_tests.sh Array 1  # Example: run tests for problem 1 in Array category
