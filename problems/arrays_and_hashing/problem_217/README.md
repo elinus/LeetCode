@@ -7,3 +7,4 @@ Given an integer array `nums`, return `true` if any value appears at least twice
 ## Solutions
 
 [cpp](https://leetcode.com/problems/contains-duplicate/submissions/966661326/)
+[rust](https://leetcode.com/problems/contains-duplicate/submissions/1385610379/)
