@@ -44,6 +44,13 @@ jobs:
               uses: actions-rs/toolchain@v1
               with:
                   toolchain: stable
+            # Provide execute permissions to the build script
+            - name: Make build script executable
+              run: chmod +x ./scripts/build.sh
+
+            # Build all solutions
+            - name: Build all solutions
+              run: ./scripts/build.sh
 
         # Build and run tests for the specified problem across all languages
         #- name: Build and Run Tests
