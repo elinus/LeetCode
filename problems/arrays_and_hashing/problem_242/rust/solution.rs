@@ -2,24 +2,9 @@ struct Solution;
 
 impl Solution {
     pub fn is_anagram(s: String, t: String) -> bool {
-        if s.char().len() != t.char().len() {
-            return false;
-        }
-        let mut vec: [0;26] = [];
-        for elem in s {
-            vec[elem - 'a'] += 1;
-        }
-
-        for elem in t {
-            vec[elem - 'a'] -= 1;
-        }
-
-        for elem in vec {
-            if elem != 0 {
-                return false;
-            }
-        }
-
-        true
+       let mut map = std::collections::HashMap::new();
+       s.chars().for_each(|c| *map.entry(c).or_insert(0) += 1); 
+       t.chars().for_each(|c| *map.entry(c).or_insert(0) -= 1); 
+       !map.into_values().any(|count| count != 0)
     }
 }
