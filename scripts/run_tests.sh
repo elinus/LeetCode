@@ -1,45 +1,53 @@
 #!/bin/bash
 
-# Usage: ./scripts/run_tests.sh <category> <problem_number>
+# Usage: ./scripts/run_tests.sh
 
-category=$1
-problem_number=$2
+echo "Running all tests..."
 
-if [ -z "$category" ] || [ -z "$problem_number" ]; then
-  echo "Usage: ./scripts/run_tests.sh <category> <problem_number>"
-  exit 1
-fi
+# Iterate through all problem directories by language and category
+for category in problems/*; do
+  if [ -d "$category" ]; then
+    for lang_dir in "$category"/*; do
+      if [ -d "$lang_dir" ]; then
+        for problem_file in "$lang_dir"/[0-9]*_*.{cpp,py,java,rs}; do  # Match pattern <number>_<name>.<extension>
+          [ -e "$problem_file" ] || continue  # If no files match, continue
 
-problem_dir="problems/$category/problem_$problem_number"
+          extension="${problem_file##*.}"
+          filename=$(basename -- "$problem_file")
+          problem_name="${filename%.*}"
 
-if [ ! -d "$problem_dir" ]; then
-  echo "Problem directory '$problem_dir' does not exist."
-  exit 1
-fi
+          # Run C++ solution
+          if [ "$extension" == "cpp" ]; then
+            if [ -f "${lang_dir}/${problem_name}_cpp" ]; then
+              echo "Running C++ solution for $problem_name..."
+              ./"${lang_dir}/${problem_name}_cpp"
+            fi
+          fi
 
-# Run C++ solution
-if [ -f "${problem_dir}/cpp/solution.cpp" ]; then
-  g++ "${problem_dir}/cpp/solution.cpp" -o "${problem_dir}/cpp/solution_cpp" && \
-  echo "Running C++ solution..." && \
-  "${problem_dir}/cpp/solution_cpp"
-fi
+          # Run Python solution
+          if [ "$extension" == "py" ]; then
+            echo "Running Python solution for $problem_name..."
+            python3 "$problem_file"
+          fi
 
-# Run Python solution
-if [ -f "${problem_dir}/python/solution.py" ]; then
-  echo "Running Python solution..." && \
-  python3 "${problem_dir}/python/solution.py"
-fi
+          # Run Java solution
+          if [ "$extension" == "java" ]; then
+            class_name="${problem_name%%_*}"
+            echo "Running Java solution for $problem_name..."
+            java -cp "$lang_dir" "$class_name"
+          fi
 
-# Run Java solution
-if [ -f "${problem_dir}/java/Solution.java" ]; then
-  javac "${problem_dir}/java/Solution.java" && \
-  echo "Running Java solution..." && \
-  java -cp "${problem_dir}/java" Solution
-fi
+          # Run Rust solution
+          if [ "$extension" == "rs" ]; then
+            if [ -f "${lang_dir}/${problem_name}_rust" ]; then
+              echo "Running Rust solution for $problem_name..."
+              ./"${lang_dir}/${problem_name}_rust"
+            fi
+          fi
+        done
+      fi
+    done
+  fi
+done
 
-# Run Rust solution
-if [ -f "${problem_dir}/rust/solution.rs" ]; then
-  rustc "${problem_dir}/rust/solution.rs" -o "${problem_dir}/rust/solution_rust" && \
-  echo "Running Rust solution..." && \
-  "${problem_dir}/rust/solution_rust"
-fi
+echo "All tests executed."
