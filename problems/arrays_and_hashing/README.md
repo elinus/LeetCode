@@ -1,97 +1,91 @@
-<<<<<<< HEAD
-# Category: Arrays and Hashing
-
-<div style="border: 1px solid #ddd; padding: 10px; margin-bottom: 10px;">
-
-## Problem 1: [Merge Intervals](https://leetcode.com/problems/merge-intervals/)
-
--   **Difficulty**: <span style="color: orange;">Medium</span>
--   **Problem Statement**: Test
--   **Solutions**:
-    -   [C++ Solution](cpp/1_merge_intervals.cpp)
-    -   [Python Solution](python/1_merge_intervals.py)
-    -   [Java Solution](java/1_merge_intervals.java)
-    -   [Rust Solution](rust/1_merge_intervals.rs)
-=======
 # Arrays and Hashing
 
-## 1: [Merge Intervals](https://leetcode.com/problems/merge-intervals/)
+## 1: [Two Sum](https://leetcode.com/problems/two-sum/)
 
--   **Difficulty**: 🟧 **Medium**
--   **Problem Statement**: Test
+-   **Difficulty**: 🟩 **Easy**
+-   **Problem Statement**: Given an array of integers nums and an integer target, return indices of the two numbers such that they add up to target.
+    You may assume that each input would have exactly one solution, and you may not use the same element twice.
+    You can return the answer in any order.
 -   **Solutions**:
-    -   [C++](cpp/1_merge_intervals.cpp)
-    -   [Rust](rust/1_merge_intervals.rs)
->>>>>>> 8a2cf75 (Refactor directory structure and update README with problem details and difficulty color-coding)
+    -   [C++](cpp/1_two_sum.cpp)
+    -   [Rust](rust/1_two_sum.rs)
 
 ### Time and Space Complexity:
 
--   **Time Complexity**: O(n log n)
+-   **Time**: O(n), For n elements in vector. HashTable insertion/lookup generally in O(1)
+-   **Space**: O(n)
+
+### Explanation:
+
+Maintain Hash/Lookup table for values and check for complement value in HashTable.
+
+### Test Cases:
+
+1. Input: `nums = [2,7,11,15], target = 9`, Output: `[1,2]`
+2. Input: `nums = [3,2,4], target = 6`, Output: `[[1,5]]`
+3. Input: `nums = [3,3], target = 6`, Output: `[0,1]`
+
+---
+
+## 41: [First Missing Positive](https://leetcode.com/problems/first-missing-positive/)
+
+-   **Difficulty**: 🟥 **Hard**
+-   **Problem Statement**: NA
+
+---
+
+## 49: [Group Anagrams](https://leetcode.com/problems/group-anagrams/)
+
+-   **Difficulty**: 🟧 **Medium**
+-   **Problem Statement**: Given two strings s and t, return true if t is an anagram of s, and false otherwise.
+-   **Solutions**:
+    -   [C++](cpp/49_group_anagrams.cpp)
+
+### Time and Space Complexity:
+
+-   **Time Complexity**: O(n \* l), n = length of strs, l = max length of string in strs
+-   **Space Complexity**: O(n \* l)
+
+### Explanation:
+
+Count chars, for each string use total char counts (naturally sorted) as key
+
+---
+
+## 217: [Contains Duplicate](https://leetcode.com/problems/contains-duplicate/)
+
+-   **Difficulty**: 🟩 **Easy**
+-   **Problem Statement**: Given an integer array nums, return true if any value appears at least twice in the array, and return false if every element is distinct.
+-   **Solutions**:
+    -   [C++](cpp/217_contains_duplicate.cpp)
+    -   [Rust](rust/217_contains_duplicate.rs)
+
+### Time and Space Complexity:
+
+-   **Time Complexity**: O(n)
 -   **Space Complexity**: O(n)
 
 ### Explanation:
 
-First, sort the intervals by their start times. Then, iterate through the sorted list, merging overlapping intervals and adjusting the end times.
-
-### Test Cases:
-
-1. Input: `[[1,3],[2,6],[8,10],[15,18]]`, Output: `[[1,6],[8,10],[15,18]]`
-2. Input: `[[1,4],[4,5]]`, Output: `[[1,5]]`
-<<<<<<< HEAD
- </div>
-
-<div style="border: 1px solid #ddd; padding: 10px; margin-bottom: 10px;">
-
-## Problem 66: [Plus One](https://leetcode.com/problems/plus-one/)
-
--   **Difficulty**: <span style="color: green;">Easy</span>
--   **Problem Statement**: NA
--   **Solutions**:
-    -   [C++ Solution](cpp/66_plus_one.cpp)
-    -   [Python Solution](python/66_plus_one.py)
-    -   [Java Solution](java/66_plus_one.java)
-    -   [Rust Solution](rust/66_plus_one.rs)
-=======
+Simple HashMap lookup for value.
 
 ---
 
-## 66: [Plus One](https://leetcode.com/problems/plus-one/)
+## 242: [Valid Anagram](https://leetcode.com/problems/valid-anagram/)
 
 -   **Difficulty**: 🟩 **Easy**
--   **Problem Statement**: NA
+-   **Problem Statement**: Given two strings s and t, return true if t is an anagram of s, and false otherwise.
 -   **Solutions**:
-    -   [C++](cpp/66_plus_one.cpp)
-    -   [Rust](rust/66_plus_one.rs)
->>>>>>> 8a2cf75 (Refactor directory structure and update README with problem details and difficulty color-coding)
+    -   [C++](cpp/242_valid_anagram.cpp)
+    -   [Rust](rust/242_valid_anagram.rs)
 
 ### Time and Space Complexity:
 
 -   **Time Complexity**: O(n)
--   **Space Complexity**: O(1)
+-   **Space Complexity**: O(n)
 
 ### Explanation:
 
-This problem can be solved by adding 1 to the last digit of the array. If there's a carry-over, it propagates from right to left.
+If strings have the same number of each character, then all hashmap values must equal 0
 
-<<<<<<< HEAD
-</div>
-=======
 ---
-
-## 66: [Plus One](https://leetcode.com/problems/plus-one/)
-
--   **Difficulty**: 🟥 **Hard**
--   **Problem Statement**: NA
--   **Solutions**:
-    -   [C++](cpp/66_plus_one.cpp)
-    -   [Rust](rust/66_plus_one.rs)
-
-### Time and Space Complexity:
-
--   **Time Complexity**: O(n)
--   **Space Complexity**: O(1)
-
-### Explanation:
-
-This problem can be solved by adding 1 to the last digit of the array. If there's a carry-over, it propagates from right to left.
->>>>>>> 8a2cf75 (Refactor directory structure and update README with problem details and difficulty color-coding)
