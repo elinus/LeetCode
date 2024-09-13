@@ -2,6 +2,12 @@
 #include <initializer_list>
 #include <vector>
 
+/**
+ * @complexity
+ * - Time Complexity: O(n).
+ * - Space Complexity: O(1)
+ */
+
 class Solution {
 public:
   std::vector<int> replaceElements(std::vector<int> &arr) {
