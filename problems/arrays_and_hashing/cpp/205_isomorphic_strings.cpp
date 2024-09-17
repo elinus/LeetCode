@@ -1,14 +1,11 @@
 #include <string>
 #include <unordered_map>
 
-#include <string>
-#include <unordered_map>
-
 /**
  * @complexity
- * - Time Complexity: O(n), where n is the length of the strings. We make a
+ * - Time: O(n), where n is the length of the strings. We make a
  * single pass through the strings while performing constant-time operations.
- * - Space Complexity: O(n), due to the hash maps storing the character
+ * - Space: O(n), due to the hash maps storing the character
  * mappings.
  */
 class Solution {

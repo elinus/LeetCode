@@ -4,10 +4,10 @@ class Solution {
 public:
   /**
    * @complexity
-   * - Time Complexity: O(n), where n is the length of the input string.
+   * - Time: O(n), where n is the length of the input string.
    *   We make a single pass over the string to skip trailing spaces and count
    *   the length of the last word.
-   * - Space Complexity: O(1). The function uses a constant amount of extra
+   * - Space: O(1). The function uses a constant amount of extra
    * space.
    */
   int lengthOfLastWord(const std::string &s) {

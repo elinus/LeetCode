@@ -5,9 +5,9 @@ public:
   /**
 
    * @complexity
-   * - Time Complexity: O(n + m), where n is the length of s and m is the length
+   * - Time: O(n + m), where n is the length of s and m is the length
    * of t. We scan both strings once, making the algorithm linear in time.
-   * - Space Complexity: O(1), as no additional space is used other than a few
+   * - Space: O(1), as no additional space is used other than a few
    * integer variables.
    */
   bool isSubsequence(const std::string &s, const std::string &t) {

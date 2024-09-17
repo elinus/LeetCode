@@ -2,8 +2,8 @@
 #include <string>
 #include <vector>
 /*
- * Time Complexity: O(n * L).
- * Space Complexity: O(1) additional space (besides the result), as the
+ * Time: O(n * L).
+ * Space: O(1) additional space (besides the result), as the
  * substring operation only returns a reference to the original string.
  */
 class Solution {

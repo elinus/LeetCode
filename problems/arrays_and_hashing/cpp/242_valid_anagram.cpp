@@ -4,24 +4,40 @@
 
 using namespace std;
 
-class Solution
-{
+/**
+ * @brief Determines if two strings are anagrams of each other.
+ * @complexity
+ * - Time: O(n), where n is the length of the input strings. We
+ * iterate through both strings once.
+ * - Space: O(1), as the vector used for frequency counting is fixed
+ * in size (26 elements for English lowercase letters).
+ */
+class Solution {
 public:
-    bool isAnagram(string s, string t)
-    {
-        if (s.length() != t.length())
-            return false;
-        vector<int> vec(26, 0);
-        for (int i = 0; i < s.length(); ++i)
-        {
-            vec[s[i] - 'a']++;
-            vec[t[i] - 'a']--;
-        }
-        for (int i = 0; i < 26; i++)
-        {
-            if (vec[i] != 0)
-                return false;
-        }
-        return true;
+  bool isAnagram(string s, string t) {
+    // If the lengths of the strings are not the same, they cannot be anagrams
+    if (s.length() != t.length()) {
+      return false;
     }
+
+    // Vector to count the frequency of each character (for lowercase English
+    // letters)
+    vector<int> char_count(26, 0);
+
+    // Traverse both strings and update the character frequency
+    for (int i = 0; i < s.length(); ++i) {
+      char_count[s[i] - 'a']++; // Increment count for s
+      char_count[t[i] - 'a']--; // Decrement count for t
+    }
+
+    // If all character frequencies are zero, the strings are anagrams
+    for (int count : char_count) {
+      if (count != 0) {
+        return false; // Mismatch found
+      }
+    }
+
+    // Strings are anagrams
+    return true;
+  }
 };

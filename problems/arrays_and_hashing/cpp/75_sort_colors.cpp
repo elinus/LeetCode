@@ -13,7 +13,7 @@ using namespace std;
  */
 class Solution {
 public:
-  void sort_colors(vector<int> &nums) {
+  void sortColors(vector<int> &nums) {
     int n = nums.size();
 
     // Pointers for tracking positions of 0s and 2s
