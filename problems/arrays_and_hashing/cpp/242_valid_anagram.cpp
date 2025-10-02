@@ -1,6 +1,7 @@
+#include <algorithm>
+#include <array>
 #include <iostream>
 #include <string>
-#include <vector>
 
 using namespace std;
 
@@ -15,29 +16,15 @@ using namespace std;
 class Solution {
 public:
   bool isAnagram(string s, string t) {
-    // If the lengths of the strings are not the same, they cannot be anagrams
-    if (s.length() != t.length()) {
+    if (s.length() != t.length())
       return false;
-    }
+    array<int, 26> freq{};
 
-    // Vector to count the frequency of each character (for lowercase English
-    // letters)
-    vector<int> char_count(26, 0);
-
-    // Traverse both strings and update the character frequency
     for (int i = 0; i < s.length(); ++i) {
-      char_count[s[i] - 'a']++; // Increment count for s
-      char_count[t[i] - 'a']--; // Decrement count for t
+      freq[s[i] - 'a']++; // Increment count for s
+      freq[t[i] - 'a']--; // Decrement count for t
     }
 
-    // If all character frequencies are zero, the strings are anagrams
-    for (int count : char_count) {
-      if (count != 0) {
-        return false; // Mismatch found
-      }
-    }
-
-    // Strings are anagrams
-    return true;
+    return all_of(freq.begin(), freq.end(), [](int c) { return c == 0; });
   }
 };

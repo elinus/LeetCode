@@ -11,22 +11,19 @@ public:
    * space.
    */
   int lengthOfLastWord(const std::string &s) {
-    int n = s.length();       // Get the length of the string
-    int lengthOfLastWord = 0; // To store the length of the last word
+    int n = s.length();
+    int word_len = 0;
 
-    // Step 1: Skip trailing spaces by moving backward
     int i = n - 1;
     while (i >= 0 && s[i] == ' ') {
       --i;
     }
 
-    // Step 2: Count the characters of the last word
     while (i >= 0 && s[i] != ' ') {
-      ++lengthOfLastWord;
+      ++word_len;
       --i;
     }
 
-    // Step 3: Return the length of the last word found
-    return lengthOfLastWord;
+    return word_len;
   }
 };

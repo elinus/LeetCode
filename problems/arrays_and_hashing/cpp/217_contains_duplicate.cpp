@@ -14,18 +14,13 @@ using namespace std;
 class Solution {
 public:
   bool containsDuplicate(vector<int> &nums) {
-    // Unordered set to keep track of elements encountered
-    unordered_set<int> seen_elements;
+    unordered_set<int> seen;
 
-    // Iterate through the input vector
     for (int num : nums) {
-      // If the element is already in the set, we found a duplicate
-      if (!seen_elements.insert(num).second) {
+      if (!seen.insert(num).second) {
         return true;
       }
     }
-
-    // No duplicates found
     return false;
   }
 };
