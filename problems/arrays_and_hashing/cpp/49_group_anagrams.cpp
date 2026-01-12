@@ -1,4 +1,6 @@
 #include <algorithm>
+#include <array>
+#include <memory>
 #include <string>
 #include <unordered_map>
 #include <vector>
@@ -16,30 +18,17 @@ using namespace std;
 class Solution {
 public:
   vector<vector<string>> groupAnagrams(vector<string> &strs) {
-    // Result vector to store the grouped anagrams
-    vector<vector<string>> result;
+    unordered_map<string, vector<string>> groups;
 
-    // Return early if the input is empty
-    if (strs.empty())
-      return result;
-
-    // Hash map to store the sorted string as key and corresponding anagrams as
-    // values
-    unordered_map<string, vector<string>> anagram_map;
-
-    // Process each string in the input
-    for (const auto &str : strs) {
-      string sorted_str = str;                    // Copy the original string
-      sort(sorted_str.begin(), sorted_str.end()); // Sort to use as the key
-
-      // Group the anagram by inserting into the hash map
-      anagram_map[sorted_str].push_back(str);
+    for (auto &&word : strs) {
+      string key(word);
+      sort(key.begin(), key.end());
+      groups[key].push_back(word);
     }
 
-    // Transfer grouped anagrams from the map to the result vector
-    for (const auto &pair : anagram_map) {
-      result.push_back(
-          pair.second); // Each value in the map is a group of anagrams
+    vector<vector<string>> result;
+    for (auto &bucket : groups) {
+      result.push_back(move(bucket.second));
     }
 
     return result;
