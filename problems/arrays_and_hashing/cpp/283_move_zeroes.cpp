@@ -9,7 +9,7 @@ public:
   void moveZeroes(vector<int> &nums) {
     int left = 0; // pointer to place next non-zero element
 
-    for (int right = 0; right < nums.size(); ++right) {
+    for (size_t right = 0; right < nums.size(); ++right) {
       if (nums[right] != 0) {
         swap(nums[left++], nums[right]);
       }
