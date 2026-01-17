@@ -1,0 +1,53 @@
+# =========================
+# Build artifacts (C / C++)
+# =========================
+*.o
+*.obj
+*.out
+*.exe
+*.a
+*.so
+*.dylib
+*.dll
+*.gcda
+*.gcno
+*.gcov
+
+# Common build directories
+build/
+bin/
+dist/
+out/
+
+# =========================
+# Rust
+# =========================
+target/
+**/*.rs.bk
+
+# =========================
+# Debugging / Sanitizers
+# =========================
+*.dSYM/
+*.dSYM.zip
+*.profraw
+*.profdata
+vgcore.*
+core
+core.*
+
+# =========================
+# Temporary / OS files
+# =========================
+*.log
+*.tmp
+*.swp
+*.swo
+.DS_Store
+
+# =========================
+# Editor (minimal)
+# =========================
+.vscode/
+.idea/
+
